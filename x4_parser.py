@@ -7,8 +7,16 @@ import xml.etree.ElementTree as etree
 pattern = re.compile('(.+) sold (\d+) (.+?) to.+? (\d+) Cr.*')
 
 
+class X4(Frame):
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.pack()
+
+
 def main():
     main_window = Tk()
+    app = X4(master=main_window)
+    app.master.title('X4 Save file parser')
 
     def browse_function():
         home = os.path.expanduser('~')
@@ -39,10 +47,10 @@ def main():
                         extracted_file.write('\n')
 
     # Create widgets
-    path_label = Label(main_window, text='Path to save file')
-    browse_button = Button(main_window, text="Browse", command=browse_function)
-    go_button = Button(main_window, text='Start generating', command=generate_csv)
-    path_actual_entry = Entry(main_window, width=100)
+    path_label = Label(app, text='Path to save file')
+    browse_button = Button(app, text="Browse", command=browse_function)
+    go_button = Button(app, text='Start generating', command=generate_csv)
+    path_actual_entry = Entry(app, width=100)
 
     # Layout grid
     path_label.grid(row=1, column=0)
@@ -50,7 +58,7 @@ def main():
     path_actual_entry.grid(row=2, column=1, columnspan=3, sticky=E+W)
     go_button.grid(row=3, column=1, rowspan=2)
 
-    main_window.mainloop()
+    app.mainloop()
 
 
 if __name__ == "__main__":
