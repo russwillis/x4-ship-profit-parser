@@ -1,3 +1,4 @@
+import datetime
 import gzip
 import os
 from tkinter import *
@@ -48,13 +49,21 @@ def main():
                 for elem in get_elements(gzipped_file, 'entry'):
                     match = pattern.match(elem.attrib['text'])
                     if match:
-                        csv_line = '{}, {}, {}, {}'.format(match.group(1), match.group(2), match.group(3),
-                                                           match.group(4))
+                        # have a stab at converting the string 'time' to an actual time
+                        format_time = convert_string_to_time(elem.get('time'))
+                        csv_line = '{}, {}, {}, {}, {}, {}'.format(elem.get('time'), format_time,
+                                                                   match.group(1), match.group(2),
+                                                                   match.group(3), match.group(4))
                         extracted_file.writelines(csv_line)
                         extracted_file.write('\n')
                         # Update the status text field in GUI by removing old message and supplying new
                         response_text.delete("1.0", END)
                         response_text.insert(END, 'CSV file generated')
+
+    def convert_string_to_time(str_to_convert):
+        minutes, seconds = divmod(int(float(str_to_convert)), 60)
+        hours, minutes = divmod(minutes, 60)
+        return '{}:{:0>2d}:{:0>2d}'.format(hours, minutes, seconds)
 
     def generate_json():
         # Update the status text field in GUI by removing old message and supplying new
