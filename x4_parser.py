@@ -1,8 +1,8 @@
 import gzip
 import os
+import xml.etree.ElementTree as etree
 from tkinter import *
 from tkinter import filedialog
-import xml.etree.ElementTree as etree
 
 # Regex to pull out the relevant data from the text line
 # example : MINER_4 DGA-872 sold 476 Silicon to HOP High Tech Factory II FLQ-580 in Holy Vision for 56701 Cr
@@ -76,7 +76,8 @@ def main():
                     if match:
                         # code to go here to generate some json :)
                         if match.group(1) in reformatted_text:
-                            reformatted_text[match.group(1)]['cash'] = reformatted_text[match.group(1)]['cash'] + int(match.group(4))
+                            reformatted_text[match.group(1)]['cash'] = reformatted_text[match.group(1)]['cash'] + int(
+                                match.group(4))
                             reformatted_text[match.group(1)]['count'] += 1
                         else:
                             reformatted_text[match.group(1)] = {'count': 0, 'cash': int(match.group(4))}
@@ -92,7 +93,7 @@ def main():
                     average_cash = format(int(reformatted_text[all_keys[i]]['cash']) //
                                           int(reformatted_text[all_keys[i]]['count']), ',d')
                     ship_list_box.insert(END, 'Credits:  {}||  Average: {} || Ship: {}'.format
-                                         (cash, average_cash, all_keys[i]))
+                    (cash, average_cash, all_keys[i]))
                 ship_list_box.grid(row=5, column=1)
 
     def on_screen_view():
@@ -112,7 +113,7 @@ def main():
     # Layout grid (not pretty but straightforward)
     path_label.grid(row=1, column=0)
     browse_button.grid(row=2, column=0)
-    path_actual_entry.grid(row=2, column=1, columnspan=3, sticky=E+W)
+    path_actual_entry.grid(row=2, column=1, columnspan=3, sticky=E + W)
     csv_button.grid(row=3, column=1)
     json_button.grid(row=3, column=2)
     response_text.grid(row=4, column=1)
