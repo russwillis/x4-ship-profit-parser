@@ -27,3 +27,5 @@ Works on Windows 10 - not tested on any other system
 * create a chart similar to the one google sheets does in the x4_parser app itself.
 
 * add switches to reorder data
+
+* make this a standalone .exe so save people from messing aroound installing python and whatnot
