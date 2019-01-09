@@ -4,7 +4,7 @@ A small program to get the gzipped save file from X4 and extract just the mining
 
 # How to use
 
-Update: Added x4-parser.exe - this should be an all in one package. You only need to download and run this one file.
+*Update*: Added x4-parser.exe - this should be an all in one package. You only need to download and run this one file.
 Also added an .app file for mac but that shows as a folder in github... no idea why
 
 Works on Windows 10 - not tested on any other system
