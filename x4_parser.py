@@ -1,4 +1,3 @@
-import datetime
 import gzip
 import os
 from tkinter import *
@@ -92,10 +91,8 @@ def main():
                     cash = format(int(reformatted_text[all_keys[i]]['cash']), ',d')
                     average_cash = format(int(reformatted_text[all_keys[i]]['cash']) //
                                           int(reformatted_text[all_keys[i]]['count']), ',d')
-                    ship_list_box.insert(END, 'Ship: {}'.format
-                                         (all_keys[i]))
-                    ship_list_box.insert(END, '      Cash:     {}'.format(cash))
-                    ship_list_box.insert(END, '      Average: {}'.format(average_cash))
+                    ship_list_box.insert(END, 'Credits:  {}||  Average: {} || Ship: {}'.format
+                                         (cash, average_cash, all_keys[i]))
                 ship_list_box.grid(row=5, column=1)
 
     def on_screen_view():
@@ -111,7 +108,6 @@ def main():
     json_button = Button(app, text='On screen view', command=on_screen_view)
     path_actual_entry = Entry(app, width=50)
     response_text = Text(app, height=2, width=50)
-
 
     # Layout grid (not pretty but straightforward)
     path_label.grid(row=1, column=0)
