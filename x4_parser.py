@@ -110,8 +110,6 @@ def main():
     csv_button = Button(app, text='Generate CSV', command=generate_csv)
     json_button = Button(app, text='On screen view', command=on_screen_view)
     path_actual_entry = Entry(app, width=50)
-    file_path = '/Users/russw/Downloads/x4-ship-profit-parser/save_001.xml.gz'
-    path_actual_entry.insert(0, file_path)
     response_text = Text(app, height=2, width=50)
 
 
