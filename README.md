@@ -4,6 +4,7 @@ A small program to get the gzipped save file from X4 and extract just the mining
 
 # How to use
 
+Update: Added x4-parser.exe - this should be an all in one package. You only need to download and run this one file.
 
 Works on Windows 10 - not tested on any other system
 
@@ -28,4 +29,4 @@ Works on Windows 10 - not tested on any other system
 
 * add switches to reorder data
 
-* make this a standalone .exe so save people from messing aroound installing python and whatnot
+* ~~make this a standalone .exe so save people from messing aroound installing python and whatnot~~
