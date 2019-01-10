@@ -107,4 +107,5 @@ extracted_logs.csv
 extracted_logs.json
 *.xml.gz
 *.xml.old
+*.xml
 .idea/
